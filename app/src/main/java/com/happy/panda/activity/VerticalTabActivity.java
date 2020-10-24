@@ -42,7 +42,6 @@ public class VerticalTabActivity extends FragmentActivity {
 
             @Override
             public void rightImgClick() {
-                Toast.makeText(getApplicationContext(), "右侧点击", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
                 intent.setClass(VerticalTabActivity.this, CornerActivity.class);
                 startActivity(intent);
