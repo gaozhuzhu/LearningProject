@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.happy.panda.view.CustomToolBar
+        android:id="@+id/customToolBar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="#bbbbbb"
+        app:leftImageSrc="@mipmap/ic_launcher_round"
+        app:rightImageSrc="@mipmap/ic_launcher_round"
+        app:titleText="自定义Title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rlv_vertical_layout"
+            android:layout_width="70dp"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:id="@+id/ll_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical" />
+    </LinearLayout>
+</LinearLayout>
