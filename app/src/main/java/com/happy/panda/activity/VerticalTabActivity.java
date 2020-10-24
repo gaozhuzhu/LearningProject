@@ -27,13 +27,19 @@ public class VerticalTabActivity extends FragmentActivity {
     private RecyclerView rlvVerticalView;
     private List<TabNameBean> mList;
     private VerticalTabAdapter verticalTabAdapter;
+    private CustomToolBar customToolBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vertical_tab_layout);
+        initView();
+        initData();
+        initFragment();
+        initListener();
+    }
 
-        CustomToolBar customToolBar = findViewById(R.id.customToolBar);
+    private void initListener() {
         customToolBar.setImgClickListener(new CustomToolBar.ImgClickListener() {
             @Override
             public void leftImgClick() {
@@ -47,10 +53,6 @@ public class VerticalTabActivity extends FragmentActivity {
                 startActivity(intent);
             }
         });
-
-        initView();
-        initData();
-        initFragment();
 
         verticalTabAdapter.setOnItemClickListener(new VerticalTabAdapter.OnItemClickListener() {
             @Override
@@ -69,6 +71,7 @@ public class VerticalTabActivity extends FragmentActivity {
     }
 
     private void initView() {
+        customToolBar = findViewById(R.id.customToolBar);
         rlvVerticalView = findViewById(R.id.rlv_vertical_layout);
         layoutManager = new CustomLinearLayoutManager(this);
         layoutManager.setOrientation(RecyclerView.VERTICAL);
