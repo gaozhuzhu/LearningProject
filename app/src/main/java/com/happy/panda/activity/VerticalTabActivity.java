@@ -23,7 +23,6 @@ import java.util.List;
 
 public class VerticalTabActivity extends FragmentActivity {
 
-    //滑动布局其
     private CustomLinearLayoutManager layoutManager;
     private RecyclerView rlvVerticalView;
     private List<TabNameBean> mList;
