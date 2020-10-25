@@ -54,12 +54,9 @@ public class VerticalTabActivity extends FragmentActivity {
             }
         });
 
-        verticalTabAdapter.setOnItemClickListener(new VerticalTabAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                layoutManager.smoothScrollToPosition(rlvVerticalView, new RecyclerView.State(), position);
-                showFragment(position);
-            }
+        verticalTabAdapter.setOnItemClickListener(position -> {
+            layoutManager.smoothScrollToPosition(rlvVerticalView, new RecyclerView.State(), position);
+            showFragment(position);
         });
     }
 
@@ -82,7 +79,7 @@ public class VerticalTabActivity extends FragmentActivity {
 
     private void initData() {
         mList = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 10; i++) {
             TabNameBean tabNameBean = new TabNameBean();
             tabNameBean.setmTabName("教育" + i);
             mList.add(tabNameBean);

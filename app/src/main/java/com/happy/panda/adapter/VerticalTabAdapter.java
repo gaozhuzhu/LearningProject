@@ -1,10 +1,12 @@
 package com.happy.panda.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,10 +19,12 @@ import java.util.List;
 
 public class VerticalTabAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
+    private static final int TYPE_FOOT = 1000;
     private final Context mContext;
     private List<TabNameBean> mTabNameList;
     private int mCurrentPosition = 0;
     private OnItemClickListener mOItemClickListener;
+    private View view;
 
 
     public interface OnItemClickListener {
@@ -39,40 +43,66 @@ public class VerticalTabAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.tab_name_item, parent, false);
+        view = LayoutInflater.from(parent.getContext()).inflate(R.layout.tab_name_item, parent, false);
+        if (viewType == TYPE_FOOT) {
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.tab_name_item, parent, false);
+            return new FootViewHolder(view);
+        }
         return new TabViewHolder(view);
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
-        final TabViewHolder mHolder = (TabViewHolder) holder;
-        mHolder.title.setText(mTabNameList.get(position).getmTabName());
-
-        mHolder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mCurrentPosition = position;
-                if (mOItemClickListener != null) {
-                    mOItemClickListener.onItemClick(position);
-                }
-                notifyDataSetChanged();
+        if (holder instanceof TabViewHolder) {
+            TabViewHolder mHolder = (TabViewHolder) holder;
+            mHolder.title.setText(mTabNameList.get(position).getmTabName());
+            if (mCurrentPosition == position) {
+                mHolder.title.setTextColor(Color.parseColor("#ff00ff"));
+            } else {
+                mHolder.title.setTextColor(Color.BLACK);
             }
-        });
-
-        if (position == mCurrentPosition) {
-            mHolder.rlLayout.setBackgroundColor(mContext.getResources().getColor(android.R.color.transparent));
-        } else if (position == mCurrentPosition - 1) {
-            mHolder.rlLayout.setBackgroundResource(R.drawable.shape_bottom_right_corner);
-        } else if (position == mCurrentPosition + 1) {
-            mHolder.rlLayout.setBackgroundResource(R.drawable.shape_top_right_corner);
         } else {
-            mHolder.rlLayout.setBackgroundResource(R.drawable.gray_drawable);
+            FootViewHolder mHolder = (FootViewHolder) holder;
+            mHolder.mFootTitle.setText("");
+            mHolder.itemView.setEnabled(false);
+        }
+
+        //更新选中背景
+        updateSelectBackground(holder, position);
+
+        holder.itemView.setOnClickListener(v -> {
+            mCurrentPosition = position;
+            if (mOItemClickListener != null) {
+                mOItemClickListener.onItemClick(position);
+            }
+            notifyDataSetChanged();
+        });
+    }
+
+    private void updateSelectBackground(@NonNull RecyclerView.ViewHolder holder, int position) {
+        if (position == mCurrentPosition) {
+            holder.itemView.setBackgroundResource(R.color.white);
+        } else if (position == mCurrentPosition - 1) {
+            holder.itemView.setBackgroundResource(R.drawable.layer_bottom_right_corner);
+        } else if (position == mCurrentPosition + 1) {
+            holder.itemView.setBackgroundResource(R.drawable.layer_top_right_corner);
+        } else {
+            holder.itemView.setBackgroundResource(R.drawable.gray_drawable);
         }
     }
 
     @Override
+    public int getItemViewType(int position) {
+        if (position == mTabNameList.size()) {
+            return TYPE_FOOT;
+        }
+        return super.getItemViewType(position);
+    }
+
+    @Override
     public int getItemCount() {
-        return mTabNameList.size();
+        return mTabNameList == null ? 0 : mTabNameList.size() + 1;
     }
 
     @Override
@@ -81,13 +111,22 @@ public class VerticalTabAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     }
 
     public static class TabViewHolder extends RecyclerView.ViewHolder {
-        private RelativeLayout rlLayout;
         public TextView title;
 
         public TabViewHolder(View v) {
             super(v);
             title = (TextView) v.findViewById(R.id.tv_tab_name);
-            rlLayout = v.findViewById(R.id.rl_root_layout);
+        }
+    }
+
+    public static class FootViewHolder extends RecyclerView.ViewHolder {
+        private TextView mFootTitle;
+        private LinearLayout linearLayout;
+
+        public FootViewHolder(@NonNull View itemView) {
+            super(itemView);
+            mFootTitle = (TextView) itemView.findViewById(R.id.tv_tab_name);
+            linearLayout = itemView.findViewById(R.id.ll_root_layout);
         }
     }
 }

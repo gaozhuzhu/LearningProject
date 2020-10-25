@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--layer-list中的item是按照顺序从下往上叠加的，即先定义的item在下面-->
+
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/white" />
+        </shape>
+    </item>
+
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:topRightRadius="12dp" />
+            <solid android:color="@color/darkgray" />
+        </shape>
+    </item>
+
+
+</layer-list>
