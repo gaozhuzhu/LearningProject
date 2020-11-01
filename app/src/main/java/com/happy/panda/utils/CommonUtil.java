@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.util.TypedValue;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 /**
@@ -20,16 +21,16 @@ public class CommonUtil {
         GradientDrawable drawable = new GradientDrawable();
         //设置圆角大小
         drawable.setCornerRadius(10);
-        //设置左右间距
-        //drawable.setPadding(dip2px(context,4), 0, dip2px(context,4), 0);
         //设置边缘线的宽以及颜色
-        drawable.setStroke(dip2px(context,2), Color.parseColor(mStrokeColor));
+        drawable.setStroke(dip2px(context, 2), Color.parseColor(mStrokeColor));
         //设置shape背景色
         drawable.setColor(Color.parseColor(mContentColor));
+        //动态设置宽高
+        drawable.setSize(ViewGroup.LayoutParams.WRAP_CONTENT, dip2px(context, 30));
         //设置到TextView中
         mTvType.setBackground(drawable);
         mTvType.setTextColor(Color.RED);
-        mTvType.setPaddingRelative(dip2px(context,4),0,dip2px(context,4),0);
+        mTvType.setPaddingRelative(dip2px(context, 4), 0, dip2px(context, 4), 0);
     }
 
 
