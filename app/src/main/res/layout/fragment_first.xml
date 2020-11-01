@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="侧边fragment"
+        android:background="@drawable/shape_textview_corner_bg"
         android:textAllCaps="false"
         app:layout_constraintBottom_toTopOf="@id/bt_shape_dynamic"
         app:layout_constraintEnd_toEndOf="parent"

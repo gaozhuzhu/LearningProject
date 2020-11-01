@@ -20,7 +20,7 @@ public class CommonUtil {
     public static void setShapeBackground(Context context, TextView mTvType, String mStrokeColor, String mContentColor) {
         GradientDrawable drawable = new GradientDrawable();
         //设置圆角大小
-        drawable.setCornerRadius(10);
+        drawable.setCornerRadius(dip2px(context,10));
         //设置边缘线的宽以及颜色
         drawable.setStroke(dip2px(context, 2), Color.parseColor(mStrokeColor));
         //设置shape背景色
