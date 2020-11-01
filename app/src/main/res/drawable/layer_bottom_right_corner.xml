@@ -3,7 +3,6 @@
 
     <!--layer-list中的item是按照顺序从下往上叠加的，即先定义的item在下面-->
 
-
     <item>
         <shape android:shape="rectangle">
             <solid android:color="@color/white" />
@@ -14,11 +13,8 @@
         <shape android:shape="rectangle">
             <corners android:bottomRightRadius="12dp" />
             <solid android:color="@color/darkgray" />
-
         </shape>
     </item>
-
-
 
 
 </layer-list>
