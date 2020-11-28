@@ -28,7 +28,7 @@ public class FirstFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mShowTextView = view.findViewById(R.id.textview_show);
+        mShowTextView = view.findViewById(R.id.tv_show);
         view.findViewById(R.id.bt_shape_dynamic).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
