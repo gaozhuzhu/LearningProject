@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * 图片缓存
  */
-public class ImageViewActivity extends AppCompatActivity {
+public class ImageViewActivity2 extends AppCompatActivity {
 
     private LruCache<String, Bitmap> tempCache;
     private LinearLayoutManager layoutManager;
