@@ -49,7 +49,7 @@ public class PieImageView extends View {
         mCirclePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mCirclePaint.setStyle(Paint.Style.STROKE);
         mCirclePaint.setStrokeWidth(dpToPixel(2, getContext()));
-        mCirclePaint.setColor(Color.argb(120, 0xff, 0xff, 0xff));
+        mCirclePaint.setColor(Color.argb(120, 0x00, 0xff, 0xff));
         mBound = new RectF();
     }
 
@@ -62,7 +62,7 @@ public class PieImageView extends View {
             int measuredWidth = MeasureSpec.getSize(widthMeasureSpec);
             int measuredHeight = MeasureSpec.getSize(heightMeasureSpec);
             // 将宽高设置为传入宽高的最小值
-            int size = measuredWidth > measuredHeight ? measuredHeight : measuredWidth;
+            int size = Math.min(measuredWidth, measuredHeight);
             // 调用setMeasuredDimension设置View实际大小
             setMeasuredDimension(size, size);
         }
@@ -82,7 +82,9 @@ public class PieImageView extends View {
         super.onDraw(canvas);
         if (mProgress != MAX_PROGRESS && mProgress != 0) {
             float mAngle = mProgress * 360f / MAX_PROGRESS;
-            canvas.drawArc(mBound, 270, mAngle, true, mArcPaint);
+            canvas.drawArc(mBound, -90, 120, true, mArcPaint);
+            mArcPaint.setColor(Color.GREEN);
+            canvas.drawArc(mBound, 120, mAngle, true, mArcPaint);
             canvas.drawCircle(mBound.centerX(), mBound.centerY(), mBound.height() / 2, mCirclePaint);
         }
     }

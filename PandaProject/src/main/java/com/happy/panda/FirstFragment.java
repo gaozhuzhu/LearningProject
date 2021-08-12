@@ -14,11 +14,13 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.happy.panda.activity.VerticalTabActivity;
 import com.happy.panda.utils.CommonUtil;
+import com.happy.panda.view.PieImageView;
 
 public class FirstFragment extends Fragment {
 
 
     private TextView mShowTextView;
+    private PieImageView pieImageView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -28,6 +30,8 @@ public class FirstFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+//        pieImageView = view.findViewById(R.id.pieImageView);
+//        pieImageView.setProgress(90);
         mShowTextView = view.findViewById(R.id.tv_show);
         view.findViewById(R.id.bt_shape_dynamic).setOnClickListener(new View.OnClickListener() {
             @Override
