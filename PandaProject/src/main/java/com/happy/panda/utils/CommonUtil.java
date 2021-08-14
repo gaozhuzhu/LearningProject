@@ -11,14 +11,13 @@ import android.widget.TextView;
  * 公共工具类 无法归类的
  */
 public class CommonUtil {
-
     /**
      * 动态设置shape背景
      *
      * @param mTvType
      */
     public static void setShapeBackground(Context context, TextView mTvType, String mStrokeColor,
-        String mContentColor) {
+                                          String mContentColor) {
         GradientDrawable drawable = new GradientDrawable();
         // 设置圆角大小
         drawable.setCornerRadius(dip2px(context, 10));
@@ -34,15 +33,27 @@ public class CommonUtil {
         mTvType.setPaddingRelative(dip2px(context, 4), 0, dip2px(context, 4), 0);
     }
 
-    // dp转px
+    /**
+     * dp转px
+     *
+     * @param context 上下文
+     * @param dpValue dp值
+     * @return px值
+     */
     public static int dip2px(Context context, float dpValue) {
         final float scale = context.getResources().getDisplayMetrics().density;
-        return (int)(dpValue * scale + 0.5f);
+        return (int) (dpValue * scale + 0.5f);
     }
 
-    // px转dp
+    /**
+     * px转dp
+     *
+     * @param context 上下文
+     * @param pxValue px值
+     * @return dp值
+     */
     public static int px2dip(Context context, int pxValue) {
-        return ((int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, pxValue,
-            context.getResources().getDisplayMetrics()));
+        return ((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, pxValue,
+                context.getResources().getDisplayMetrics()));
     }
 }

@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.happy.panda.R;
 
 public class CornerActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -18,14 +18,12 @@ import com.happy.panda.bean.TabNameBean;
 import java.util.List;
 
 public class VerticalTabAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-
     private static final int TYPE_FOOT = 1000;
     private final Context mContext;
     private List<TabNameBean> mTabNameList;
     private int mCurrentPosition = 0;
     private OnItemClickListener mOItemClickListener;
     private View view;
-
 
     public interface OnItemClickListener {
         void onItemClick(int position);
@@ -51,12 +49,11 @@ public class VerticalTabAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         return new TabViewHolder(view);
     }
 
-    @SuppressLint("UseCompatLoadingForDrawables")
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, @SuppressLint("RecyclerView") final int position) {
         if (holder instanceof TabViewHolder) {
             TabViewHolder mHolder = (TabViewHolder) holder;
-            mHolder.title.setText(mTabNameList.get(position).getmTabName());
+            mHolder.title.setText(mTabNameList.get(position).getTabName());
             if (mCurrentPosition == position) {
                 mHolder.title.setTextColor(Color.parseColor("#ff00ff"));
             } else {
@@ -68,7 +65,7 @@ public class VerticalTabAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             mHolder.itemView.setEnabled(false);
         }
 
-        //更新选中背景
+        // 更新选中背景
         updateSelectBackground(holder, position);
 
         holder.itemView.setOnClickListener(v -> {
@@ -119,7 +116,7 @@ public class VerticalTabAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         }
     }
 
-    public static class FootViewHolder extends RecyclerView.ViewHolder {
+    private static class FootViewHolder extends RecyclerView.ViewHolder {
         private TextView mFootTitle;
         private LinearLayout linearLayout;
 

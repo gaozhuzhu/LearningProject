@@ -10,7 +10,6 @@ import com.happy.panda.R;
  * Created by Danny 姜.
  */
 public class FlowLayoutActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

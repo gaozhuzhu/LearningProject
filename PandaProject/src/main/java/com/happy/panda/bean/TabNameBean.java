@@ -2,13 +2,13 @@ package com.happy.panda.bean;
 
 public class TabNameBean {
 
-    private String mTabName;
+    private String tabName;
 
-    public String getmTabName() {
-        return mTabName;
+    public String getTabName() {
+        return tabName;
     }
 
-    public void setmTabName(String mTabName) {
-        this.mTabName = mTabName;
+    public void setTabName(String tabName) {
+        this.tabName = tabName;
     }
 }

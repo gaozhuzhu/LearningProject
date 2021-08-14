@@ -15,7 +15,6 @@ import androidx.core.view.ViewCompat;
  * Created by Danny 姜
  */
 public class PieImageView extends View {
-
     private static final int MAX_PROGRESS = 100;
     private Paint mArcPaint;
     private RectF mBound;
@@ -95,6 +94,6 @@ public class PieImageView extends View {
         if (scale == 0) {
             scale = context.getResources().getDisplayMetrics().density;
         }
-        return (int) (dp * scale);
+        return (int)(dp * scale);
     }
 }

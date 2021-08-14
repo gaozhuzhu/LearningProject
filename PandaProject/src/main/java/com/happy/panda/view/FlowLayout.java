@@ -12,9 +12,9 @@ import java.util.List;
  * Created by Danny 姜.
  */
 public class FlowLayout extends ViewGroup {
-
     //存放容器中所有的View
     private List<List<View>> mAllViews = new ArrayList<List<View>>();
+
     //存放每一行最高View的高度
     private List<Integer> mPerLineMaxHeight = new ArrayList<>();
 

@@ -527,7 +527,7 @@
             value="insert" />
         <setting
             id="org.eclipse.jdt.core.formatter.insert_new_line_after_annotation_on_local_variable"
-            value="insert" />
+            value="next line" />
         <setting id="org.eclipse.jdt.core.formatter.insert_new_line_after_annotation_on_type"
             value="insert" />
         <!--Idea -> Wrapping And Braces -> Simple block in one line -> do not select -->

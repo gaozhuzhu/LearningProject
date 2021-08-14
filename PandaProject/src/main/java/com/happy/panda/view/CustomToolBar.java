@@ -24,9 +24,9 @@ public class CustomToolBar extends RelativeLayout {
 
     //1.声明一个接口
     public interface ImgClickListener {
-        public void leftImgClick();
+        void leftImgClick();
 
-        public void rightImgClick();
+        void rightImgClick();
     }
 
     //2.创建一个接口变量

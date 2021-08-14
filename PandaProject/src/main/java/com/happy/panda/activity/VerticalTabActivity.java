@@ -20,7 +20,6 @@ import com.happy.panda.view.CustomToolBar;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class VerticalTabActivity extends FragmentActivity {
 
     private CustomLinearLayoutManager layoutManager;
@@ -81,7 +80,7 @@ public class VerticalTabActivity extends FragmentActivity {
         mList = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             TabNameBean tabNameBean = new TabNameBean();
-            tabNameBean.setmTabName("教育" + i);
+            tabNameBean.setTabName("教育" + i);
             mList.add(tabNameBean);
         }
     }

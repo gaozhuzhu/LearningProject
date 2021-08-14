@@ -32,14 +32,11 @@ public class ImageViewActivity2 extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_image_list_layout);
-
-
         initView();
-
         initData();
-        //指定 LruCache 的最大空间为 20M，当超过 20M 时，LruCache 会根据内部缓存策略将多余 Bitmap 移除
+
+        // 指定 LruCache 的最大空间为 20M，当超过 20M 时，LruCache 会根据内部缓存策略将多余 Bitmap 移除
         int cacheSize = 20 * 1024 * 1024;
         tempCache = new LruCache<String, Bitmap>(cacheSize) {
             @Override
@@ -48,7 +45,6 @@ public class ImageViewActivity2 extends AppCompatActivity {
             }
         };
     }
-
 
     private void initView() {
         rlvLabelLayout = findViewById(R.id.rlv_label_layout);
@@ -63,7 +59,7 @@ public class ImageViewActivity2 extends AppCompatActivity {
         mList = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             TabNameBean tabNameBean = new TabNameBean();
-            tabNameBean.setmTabName("教育" + i);
+            tabNameBean.setTabName("教育" + i);
             mList.add(tabNameBean);
         }
 

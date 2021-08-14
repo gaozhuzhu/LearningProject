@@ -51,7 +51,7 @@ class ImageViewActivity : AppCompatActivity() {
         mList = ArrayList()
         for (i in 0..9) {
             val tabNameBean = TabNameBean()
-            tabNameBean.setmTabName("教育$i")
+            tabNameBean.tabName = "教育$i"
             mList?.add(tabNameBean)
         }
         promotionLabelAdapter = PromotionLabelAdapter(this, mList)

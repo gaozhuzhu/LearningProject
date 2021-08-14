@@ -2,12 +2,9 @@ package com.happy.panda.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,7 +15,6 @@ import com.happy.panda.bean.TabNameBean;
 import java.util.List;
 
 public class PromotionLabelAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-
     private final Context mContext;
     private List<TabNameBean> mTabNameList;
     private int mCurrentPosition = 0;
@@ -47,12 +43,10 @@ public class PromotionLabelAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         return new TabViewHolder(view);
     }
 
-    @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
 
     }
-
 
     @Override
     public int getItemViewType(int position) {
