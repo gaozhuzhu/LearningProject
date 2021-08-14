@@ -11,32 +11,37 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
 
-
 /**
  * 圆角布局
  */
-public class RoundCornerLayout extends RelativeLayout {
+public class RoundCornerLayout extends RelativeLayout
+{
 
     private RoundViewDelegate mRoundViewDelegate;
 
-    public RoundCornerLayout(Context context) {
+    public RoundCornerLayout(Context context)
+    {
         this(context, null);
     }
 
-    public RoundCornerLayout(Context context, AttributeSet attrs) {
+    public RoundCornerLayout(Context context, AttributeSet attrs)
+    {
         this(context, attrs, 0);
     }
 
-    public RoundCornerLayout(Context context, AttributeSet attrs, int defStyle) {
+    public RoundCornerLayout(Context context, AttributeSet attrs, int defStyle)
+    {
         super(context, attrs, defStyle);
-        if (mRoundViewDelegate == null) {
+        if (mRoundViewDelegate == null)
+        {
             mRoundViewDelegate = new RoundViewDelegate(this);
         }
     }
 
     @Override
     protected void onLayout(boolean changed, int left, int top, int right,
-                            int bottom) {
+            int bottom)
+    {
         super.onLayout(changed, left, top, right, bottom);
         int w = getWidth();
         int h = getHeight();
@@ -44,29 +49,37 @@ public class RoundCornerLayout extends RelativeLayout {
     }
 
     @Override
-    public void draw(Canvas canvas) {
+    public void draw(Canvas canvas)
+    {
         mRoundViewDelegate.canvasSetLayer(canvas);
         super.draw(canvas);
         canvas.restore();
     }
 
-
-    private static class RoundViewDelegate {
+    private static class RoundViewDelegate
+    {
         private final RectF mRect = new RectF();
+
         // 圆角半径
         private float mRectRadius = 30;
+
         private final Paint maskPaint = new Paint();
+
         private final Paint zonePaint = new Paint();
+
         private View mView;
 
-        public RoundViewDelegate(View view) {
+        public RoundViewDelegate(View view)
+        {
             this.mView = view;
             init();
         }
 
-        private void init() {
+        private void init()
+        {
             maskPaint.setAntiAlias(true);
-            maskPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+            maskPaint.setXfermode(
+                    new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
             zonePaint.setAntiAlias(true);
             zonePaint.setColor(Color.WHITE);
         }
@@ -76,9 +89,11 @@ public class RoundCornerLayout extends RelativeLayout {
          *
          * @param adius
          */
-        public void setRectAdius(float adius) {
+        public void setRectAdius(float adius)
+        {
             mRectRadius = adius;
-            if (mView != null) {
+            if (mView != null)
+            {
                 mView.invalidate();
             }
         }
@@ -89,7 +104,8 @@ public class RoundCornerLayout extends RelativeLayout {
          * @param width
          * @param height
          */
-        public void roundRectSet(int width, int height) {
+        public void roundRectSet(int width, int height)
+        {
             mRect.set(0, 0, width, height);
         }
 
@@ -98,7 +114,8 @@ public class RoundCornerLayout extends RelativeLayout {
          *
          * @param canvas
          */
-        public void canvasSetLayer(Canvas canvas) {
+        public void canvasSetLayer(Canvas canvas)
+        {
             canvas.saveLayer(mRect, zonePaint, Canvas.ALL_SAVE_FLAG);
             canvas.drawRoundRect(mRect, mRectRadius, mRectRadius, zonePaint);
             canvas.saveLayer(mRect, maskPaint, Canvas.ALL_SAVE_FLAG);
