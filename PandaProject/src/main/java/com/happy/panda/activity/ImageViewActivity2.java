@@ -1,5 +1,12 @@
 package com.happy.panda.activity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.happy.panda.R;
+import com.happy.panda.adapter.PromotionLabelAdapter;
+import com.happy.panda.bean.TabNameBean;
+
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.LruCache;
@@ -10,19 +17,10 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.happy.panda.R;
-import com.happy.panda.adapter.PromotionLabelAdapter;
-import com.happy.panda.adapter.VerticalTabAdapter;
-import com.happy.panda.bean.TabNameBean;
-
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * 图片缓存
  */
 public class ImageViewActivity2 extends AppCompatActivity {
-
     private LruCache<String, Bitmap> tempCache;
     private LinearLayoutManager layoutManager;
     private RecyclerView rlvLabelLayout;

@@ -3,13 +3,16 @@ package com.happy.panda.activity
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.util.LruCache
+
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+
 import com.happy.panda.R
 import com.happy.panda.adapter.PromotionLabelAdapter
 import com.happy.panda.bean.TabNameBean
+
 import java.util.*
 
 /**

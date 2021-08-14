@@ -1,5 +1,15 @@
 package com.happy.panda.activity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.happy.panda.R;
+import com.happy.panda.adapter.VerticalTabAdapter;
+import com.happy.panda.bean.TabNameBean;
+import com.happy.panda.fragment.RightFragment;
+import com.happy.panda.layoutmanager.CustomLinearLayoutManager;
+import com.happy.panda.view.CustomToolBar;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -9,16 +19,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.happy.panda.R;
-import com.happy.panda.fragment.RightFragment;
-import com.happy.panda.bean.TabNameBean;
-import com.happy.panda.adapter.VerticalTabAdapter;
-import com.happy.panda.layoutmanager.CustomLinearLayoutManager;
-import com.happy.panda.view.CustomToolBar;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class VerticalTabActivity extends FragmentActivity {
 

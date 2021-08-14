@@ -1,5 +1,10 @@
 package com.happy.panda.adapter;
 
+import java.util.List;
+
+import com.happy.panda.R;
+import com.happy.panda.bean.TabNameBean;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
@@ -11,11 +16,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.happy.panda.R;
-import com.happy.panda.bean.TabNameBean;
-
-import java.util.List;
 
 public class VerticalTabAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static final int TYPE_FOOT = 1000;
@@ -50,9 +50,10 @@ public class VerticalTabAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, @SuppressLint("RecyclerView") final int position) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder,
+        @SuppressLint("RecyclerView") final int position) {
         if (holder instanceof TabViewHolder) {
-            TabViewHolder mHolder = (TabViewHolder) holder;
+            TabViewHolder mHolder = (TabViewHolder)holder;
             mHolder.title.setText(mTabNameList.get(position).getTabName());
             if (mCurrentPosition == position) {
                 mHolder.title.setTextColor(Color.parseColor("#ff00ff"));
@@ -60,7 +61,7 @@ public class VerticalTabAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                 mHolder.title.setTextColor(Color.BLACK);
             }
         } else {
-            FootViewHolder mHolder = (FootViewHolder) holder;
+            FootViewHolder mHolder = (FootViewHolder)holder;
             mHolder.mFootTitle.setText("");
             mHolder.itemView.setEnabled(false);
         }
@@ -112,9 +113,10 @@ public class VerticalTabAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
         public TabViewHolder(View v) {
             super(v);
-            title = (TextView) v.findViewById(R.id.tv_tab_name);
+            title = (TextView)v.findViewById(R.id.tv_tab_name);
         }
     }
+
 
     private static class FootViewHolder extends RecyclerView.ViewHolder {
         private TextView mFootTitle;
@@ -122,7 +124,7 @@ public class VerticalTabAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
         public FootViewHolder(@NonNull View itemView) {
             super(itemView);
-            mFootTitle = (TextView) itemView.findViewById(R.id.tv_tab_name);
+            mFootTitle = (TextView)itemView.findViewById(R.id.tv_tab_name);
             linearLayout = itemView.findViewById(R.id.ll_root_layout);
         }
     }

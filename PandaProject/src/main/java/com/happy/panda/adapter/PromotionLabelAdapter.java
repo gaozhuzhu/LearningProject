@@ -1,6 +1,10 @@
 package com.happy.panda.adapter;
 
-import android.annotation.SuppressLint;
+import java.util.List;
+
+import com.happy.panda.R;
+import com.happy.panda.bean.TabNameBean;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,11 +12,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.happy.panda.R;
-import com.happy.panda.bean.TabNameBean;
-
-import java.util.List;
 
 public class PromotionLabelAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private final Context mContext;
