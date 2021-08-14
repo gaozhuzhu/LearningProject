@@ -1,11 +1,11 @@
 package com.happy.panda.activity;
 
+import com.happy.panda.R;
+
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.happy.panda.R;
 
 public class CornerActivity extends AppCompatActivity {
     @Override
