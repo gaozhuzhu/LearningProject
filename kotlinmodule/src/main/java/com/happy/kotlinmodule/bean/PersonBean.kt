@@ -7,6 +7,6 @@ data class PersonBean(val name: String, val age: Int? = null) {
     fun main(args: Array<String>) {
         val personals = listOf(PersonBean("Panda"), PersonBean("Jiahuan", 30))
         val oldest = personals.maxBy { it.age ?: 0 }
-        println("Hello Kotlin is: $oldest" + mTag)
+        println("Hello Kotlin is: $oldest$mTag")
     }
 }

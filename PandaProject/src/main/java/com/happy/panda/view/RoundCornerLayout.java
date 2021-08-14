@@ -15,7 +15,6 @@ import android.widget.RelativeLayout;
  * 圆角布局
  */
 public class RoundCornerLayout extends RelativeLayout {
-
     private RoundViewDelegate mRoundViewDelegate;
 
     public RoundCornerLayout(Context context) {

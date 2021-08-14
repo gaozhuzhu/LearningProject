@@ -22,7 +22,6 @@ public class CustomToolBar extends RelativeLayout {
     private ImageView leftImg, rightImg;
     private TextView titleTextView;
 
-    //1.声明一个接口
     public interface ImgClickListener {
         void leftImgClick();
 
